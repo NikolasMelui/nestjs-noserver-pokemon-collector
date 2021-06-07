@@ -9,4 +9,11 @@ export class ParserService {
       console.error(error);
     }
   }
+  getNames(data: string): string {
+    try {
+      return JSON.parse(data)?.results.map((item) => item.name);
+    } catch (error) {
+      console.error(error);
+    }
+  }
 }
