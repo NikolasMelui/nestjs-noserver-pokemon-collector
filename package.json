@@ -1,7 +1,7 @@
 {
   "name": "nestjs-noserver-pokemon-collectort",
   "version": "0.0.1",
-  "description": "",
+  "description": "Nest.js standalone application (without server) collect pokemons from pokeapi",
   "author": "",
   "private": true,
   "license": "MIT",
