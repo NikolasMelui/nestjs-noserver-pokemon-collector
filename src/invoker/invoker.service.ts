@@ -17,7 +17,16 @@ export class InvokerService {
   ) {}
   async run(): Promise<void> {
     try {
-      const pokemons = ['bulbasaur', 'charmander', 'squirtle', 'pikachu'];
+      const pokemonsWriteData = await this.downloaderService.getPokemons();
+      await this.writerService.writeToFile(
+        '__pokemons.json',
+        JSON.stringify(pokemonsWriteData),
+      );
+      await sleep(2000);
+      const pokemonsReadData = await this.readerService.readFromFile(
+        '__pokemons.json',
+      );
+      const pokemons = this.parserService.getNames(pokemonsReadData);
       for (const pokemon of pokemons) {
         const fullData = await this.downloaderService.getPokemon(pokemon);
         await this.writerService.writeToFile(
@@ -28,10 +37,10 @@ export class InvokerService {
         const readData = await this.readerService.readFromFile(
           `${pokemon}.json`,
         );
-        const partialData = this.parserService.getGameIndices(readData);
+        const gameIndices = this.parserService.getGameIndices(readData);
         await this.writerService.writeToFile(
-          `${pokemon}_partial.json`,
-          JSON.stringify(partialData),
+          `${pokemon}_gameIndices.json`,
+          JSON.stringify(gameIndices),
         );
       }
     } catch (error) {
