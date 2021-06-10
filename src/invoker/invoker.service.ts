@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { DownloaderService } from 'src/services/downloader.service';
-import { ParserService } from 'src/services/parseer.service';
+import { ParserService } from 'src/services/parser.service';
 import { ReaderService } from 'src/services/reader.service';
 import { WriterService } from 'src/services/writer.service';
 
