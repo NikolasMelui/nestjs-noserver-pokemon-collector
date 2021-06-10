@@ -1,23 +1,13 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { PokemonRepository } from 'src/database/pokemon/pokemon.repository';
 import { PokeapiService } from 'src/services/pokeapi.service';
-import { ParserService } from 'src/services/parser.service';
-import { ReaderService } from 'src/services/reader.service';
-import { WriterService } from 'src/services/writer.service';
-import { InvokerService } from './invoker.service';
-import { PokemonTcgService } from 'src/services/pokemontcg.service';
+import { InvokerService } from 'src/invoker/invoker.service';
+import { PokemontcgService } from 'src/services/pokemontcg.service';
+import { PokemonRepository } from 'src/database/pokemon/pokemon.repository';
 
 @Module({
   imports: [TypeOrmModule.forFeature([PokemonRepository])],
   controllers: [],
-  providers: [
-    InvokerService,
-    ReaderService,
-    WriterService,
-    ParserService,
-    PokeapiService,
-    PokemonTcgService,
-  ],
+  providers: [InvokerService, PokeapiService, PokemontcgService],
 })
 export class InvokerModule {}

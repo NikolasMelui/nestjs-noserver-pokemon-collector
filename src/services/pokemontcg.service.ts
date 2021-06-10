@@ -1,10 +1,11 @@
 import { Injectable } from '@nestjs/common';
+
 import axios from 'axios';
 
 import configuration from '../config/configuration';
 
 @Injectable()
-export class PokemonTcgService {
+export class PokemontcgService {
   private config: Record<string, unknown>;
 
   constructor() {
