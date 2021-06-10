@@ -7,7 +7,7 @@ import { InvokerModule } from './invoker/invoker.module';
     InvokerModule,
     TypeOrmModule.forRoot({
       type: 'sqlite',
-      database: './data/pokemon-collector.sqlite3',
+      database: './data/__pokemon-collector.sqlite3',
       entities: [`${__dirname}/**/*.entity{.ts,.js}`],
       synchronize: true,
     }),
