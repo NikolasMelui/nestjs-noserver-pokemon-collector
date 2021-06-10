@@ -27,22 +27,20 @@ export class InvokerService {
         '__pokemons.json',
       );
       const pokemons = this.parserService.getNames(pokemonsReadData);
-      for (const pokemon of pokemons) {
+      for (const name of pokemons) {
         const writeToDatabaseResult = await this.writerService.writeToDatabase({
-          name: pokemon,
+          name,
         });
-        console.log(writeToDatabaseResult);
-        const fullData = await this.downloaderService.getPokemon(pokemon);
+        console.info(writeToDatabaseResult);
+        const fullData = await this.downloaderService.getPokemon(name);
         await this.writerService.writeToFile(
-          `${pokemon}.json`,
+          `${name}.json`,
           JSON.stringify(fullData),
         );
-        const readData = await this.readerService.readFromFile(
-          `${pokemon}.json`,
-        );
+        const readData = await this.readerService.readFromFile(`${name}.json`);
         const gameIndices = this.parserService.getGameIndices(readData);
         await this.writerService.writeToFile(
-          `${pokemon}_gameIndices.json`,
+          `${name}_gameIndices.json`,
           JSON.stringify(gameIndices),
         );
       }
