@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
-import { DownloaderService } from 'src/downloader/downloader.service';
-import { ParserService } from 'src/parser/parseer.service';
-import { ReaderService } from 'src/reader/reader.service';
-import { WriterService } from 'src/writer/writer.service';
+import { DownloaderService } from 'src/services/downloader.service';
+import { ParserService } from 'src/services/parseer.service';
+import { ReaderService } from 'src/services/reader.service';
+import { WriterService } from 'src/services/writer.service';
 
 import { promisify } from 'util';
 const sleep = promisify(setTimeout);
