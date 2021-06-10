@@ -3,8 +3,8 @@
     {
       "previewLimit": 50,
       "driver": "SQLite",
-      "name": "pokemon-collector.sqlite3",
-      "database": "${workspaceFolder:nestjs-noserver-pokemon-collector}/data/pokemon-collector.sqlite3"
+      "name": "__pokemon-collector.sqlite3",
+      "database": "${workspaceFolder:nestjs-noserver-pokemon-collector}/data/__pokemon-collector.sqlite3"
     }
   ]
 }
